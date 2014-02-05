@@ -140,11 +140,12 @@ Bundle 'Shougo/neocomplcache.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'FromtonRouge/OmniCppComplete'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'repeat.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'wesleyche/SrcExpl'
-" Bundle 'ervandew/supertab'
+Bundle 'ervandew/supertab'
 Bundle 'std_c.zip'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
@@ -812,3 +813,28 @@ let g:rubycomplete_rails = 1
 "set rtp+=~/.vim/bundle/vundle/
 "call vundle#rc()
 Bundle 'junegunn/vim-easy-align'
+"Bundle 'bling/vim-airline'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-fugitive'
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+set laststatus=2
+set ttimeoutlen=50
+
+let g:airline_symbols = {}
+
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_enable_fugitive=1
+let g:airline_section_b='%{fugitive#statusline()}'
+let g:airline_section_c="%t"
+let g:airline_section_x="%y"
+let g:airline_section_y='BN: %{bufnr("%")}'
+
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = 'L'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.whitespace = 'Ξ'
