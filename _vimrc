@@ -112,7 +112,7 @@ endif
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 set nocompatible                                      "禁用 Vi 兼容模式
-filetype off                                          "禁用文件类型侦测
+filetype on                                          "禁用文件类型侦测
 
 if !g:iswindows
     set rtp+=~/.vim/bundle/vundle/
@@ -141,7 +141,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'FromtonRouge/OmniCppComplete'
 "Bundle 'Lokaltog/vim-powerline'
-Bundle 'bling/vim-airline'
+Bundle 'bin/vim-airline'
 Bundle 'repeat.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'wesleyche/SrcExpl'
@@ -189,7 +189,7 @@ set shiftwidth=2                                      "换行时自动缩进4个
 set smarttab                                          "指定按一次backspace就删除shiftwidth宽度的空格
 set foldenable                                        "启用折叠
 set foldmethod=indent                                 "indent 折叠方式
-" set foldmethod=marker                                "marker 折叠方式
+set foldmethod=marker                                "marker 折叠方式
 
 " 用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
@@ -233,8 +233,8 @@ set cursorline                                        "突出显示当前行
 set nowrap                                            "设置不自动换行
 set shortmess=atI                                     "去掉欢迎界面
 " au GUIEnter * simalt ~x                              "窗口启动时自动最大化
-winpos 100 10                                         "指定窗口出现的位置，坐标原点在屏幕左上角
-set lines=38 columns=120                              "指定窗口大小，lines为高度，columns为宽度
+" winpos 100 10                                         "指定窗口出现的位置，坐标原点在屏幕左上角
+" set lines=38 columns=120                              "指定窗口大小，lines为高度，columns为宽度
 
 " 设置代码配色方案
 if g:isGUI
