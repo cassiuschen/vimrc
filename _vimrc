@@ -100,61 +100,83 @@ if !g:iswindows
 endif
 
 
-" =============================================================================
-"                          << 以下为用户自定义配置 >>
-" =============================================================================
 
-" -----------------------------------------------------------------------------
-"  < Vundle 插件管理工具配置 >
-" -----------------------------------------------------------------------------
-" 用于更方便的管理vim插件，具体用法参考 :h vundle 帮助
-" 安装方法为在终端输入如下命令
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-set nocompatible                                      "禁用 Vi 兼容模式
-filetype on                                          "禁用文件类型侦测
 
-if !g:iswindows
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
-else
-    set rtp+=$VIM/vimfiles/bundle/vundle/
-    call vundle#rc('$VIM/vimfiles/bundle/')
-endif
 
-" 使用Vundle来管理Vundle，这个必须要有。
-Bundle 'gmarik/vundle'
+" ========= Vundle Configure =============
+set nocompatible              " be iMproved, required
 
-" 以下为要安装或更新的插件，不同仓库都有（具体书写规范请参考帮助）
-Bundle 'a.vim'
-Bundle 'Align'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'bufexplorer.zip'
-Bundle 'ccvext.vim'
-Bundle 'cSyntaxAfter'
-Bundle 'Yggdroot/indentLine'
-Bundle 'breestealth/Mark-Karkat'
-" Bundle 'minibufexpl.vim'
-" Bundle 'fholgado/minibufexpl.vim' "这个上的6.4.4版本与 Vundle 插件有一些冲突
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'FromtonRouge/OmniCppComplete'
-"Bundle 'Lokaltog/vim-powerline'
-Bundle 'bin/vim-airline'
-Bundle 'repeat.vim'
-Bundle 'msanders/snipmate.vim'
-Bundle 'wesleyche/SrcExpl'
-Bundle 'ervandew/supertab'
-Bundle 'std_c.zip'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'netroby/taglist'
-Bundle 'TxtBrowser'
-" Bundle 'winmanager'
-Bundle 'ZoomWin'
+filetype off                  " required
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'a.vim'
+Plugin 'Align'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'bufexplorer.zip'
+Plugin 'ccvext.vim'
+Plugin 'cSyntaxAfter'
+Plugin 'Yggdroot/indentLine'
+Plugin 'vim-scripts/Mark--Karkat'
+Plugin 'minibufexpl.vim'
+" Plugin 'fholgado/minibufexpl.vim' "这个上的6.4.4版本与 Vundle 插件有一些冲突
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'FromtonRouge/OmniCppComplete'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'repeat.vim'
+Plugin 'msanders/snipmate.vim'
+Plugin 'wesleyche/SrcExpl'
+Plugin 'ervandew/supertab'
+Plugin 'std_c.zip'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'taglist.vim'
+Plugin 'TxtBrowser'
+" Plugin 'winmanager'
+Plugin 'ZoomWin'
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
 " -----------------------------------------------------------------------------
@@ -238,9 +260,9 @@ set shortmess=atI                                     "去掉欢迎界面
 
 " 设置代码配色方案
 if g:isGUI
-    colorscheme Tomorrow-Night-Eighties               "Gvim配色方案
+  colorscheme Tomorrow-Night-Eighties               "Gvim配色方案
 else
-    colorscheme Tomorrow-Night-Eighties               "终端配色方案
+ colorscheme Tomorrow-Night-Eighties               "终端配色方案
 endif
 
 " 个性化状栏（这里提供两种方式，要使用其中一种去掉注释即可，不使用反之）
@@ -446,10 +468,6 @@ endfunc
 " -----------------------------------------------------------------------------
 set writebackup                             "保存文件前建立备份，保存成功后删除该备份
 set nobackup                                "设置无备份文件
-" set noswapfile                              "设置无临时文件
-set vb t_vb=                                "关闭提示音
-
-
 " =============================================================================
 "                          << 以下为常用插件配置 >>
 " =============================================================================
@@ -793,7 +811,7 @@ Bundle 'ZenCoding.vim'
 Bundle 'othree/html5.vim'
 " Bundle 'junegunn/goyo.vim'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-fugitive'
 autocmd BufRead,BufNewFile *.json set filetype=json
 autocmd BufRead,BufNewFile *.slim set filetype=slim
 autocmd BufRead,BufNewFile *.html.erb set filetype=eruby.html
